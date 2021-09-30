@@ -6,8 +6,8 @@ nodeGroup: "master"
 # This should be set to clusterName + "-" + nodeGroup for your master group
 masterService: ""
 
-storageClassNameCreate: 
-    name: local-path
+# storageClassNameCreate: 
+#     name: local-path
 
 # Elasticsearch roles that will be applied to this nodeGroup
 # These will be set as environment variables. E.g. node.master=true
@@ -97,9 +97,12 @@ networkHost: "0.0.0.0"
 
 volumeClaimTemplate:
   accessModes: ["ReadWriteOnce"]
+  storageClassName: "local-path"
   resources:
     requests:
       storage: 30Gi
+    
+    
 
 rbac:
   create: false
